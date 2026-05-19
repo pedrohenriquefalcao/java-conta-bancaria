@@ -18,6 +18,6 @@ public class contaPoupanca extends conta {
             return;
         }
         this.saldoAtual -= valor;
-        System.out.println("Saque no valor de R$"+valor+" realizado! Saldo atual: R$"+saldoAtual);
+        System.out.println(nomeDoTitular+": Saque no valor de R$"+valor+" realizado! Saldo atual: R$"+saldoAtual);
     }
 }

@@ -16,6 +16,6 @@ public class contaCorrente extends conta {
             return;
         }
         this.saldoAtual -= valorComTaxa;
-        System.out.println("Saque no valor de R$"+valorComTaxa+" realizado! Saldo atual: R$"+saldoAtual);
+        System.out.println(nomeDoTitular+": Saque no valor de R$"+valorComTaxa+" realizado! Saldo atual: R$"+saldoAtual);
     }
 }
