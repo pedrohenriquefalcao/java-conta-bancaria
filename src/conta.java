@@ -22,6 +22,6 @@ public abstract class conta {
         System.out.println("Depósito com o valor de " + valor + " foi feito com sucesso!");
     }
 
-    abstract void saque();
+    abstract void saque(double valor);
 
 }
