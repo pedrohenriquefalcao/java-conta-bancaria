@@ -3,7 +3,7 @@ public class contaPoupanca extends conta {
     public contaPoupanca() {
     }
 
-    public contaPoupanca(double numeroConta, String nomeDoTitular, double saldoAtual) {
+    public contaPoupanca(int numeroConta, String nomeDoTitular, double saldoAtual) {
         super(numeroConta, nomeDoTitular, saldoAtual);
     }
 
