@@ -7,7 +7,7 @@ public class Main {
         int escolha = 0;
         Scanner scanner = new Scanner(System.in);
         ArrayList<conta> listaDeContas = new ArrayList<>(); // Inicializando array para
-                                                           // guardar as contas criadas
+        // guardar as contas criadas
 
 
         do {
@@ -24,7 +24,7 @@ public class Main {
 
             switch (escolha) {
 
-                case 1:
+                case 1: {
                     System.out.println("= Cadastrando Conta Corrente =");
                     System.out.println("= Insira o número da conta: =");
                     int numeroParaConta = scanner.nextInt();
@@ -34,16 +34,37 @@ public class Main {
                     String nomeParaTitular = scanner.nextLine();
 
                     System.out.println("= Insira o Saldo inicial: =");
-                    double saldoInicial = scanner.nextInt();
+                    double saldoInicial = scanner.nextDouble();
                     scanner.nextLine();
 
-                    contaCorrente cc = new contaCorrente(numeroParaConta,nomeParaTitular,saldoInicial);
+                    contaCorrente cc = new contaCorrente(numeroParaConta, nomeParaTitular, saldoInicial);
 
                     listaDeContas.add(cc);
 
                     System.out.println("Conta Corrente cadastrada com sucesso!");
                     System.out.println(cc);
                     break;
+                }
+                case 2: {
+                    System.out.println("= Cadastrando Conta Poupança =");
+                    System.out.println("= Insira o número da conta: =");
+                    int numeroParaConta = scanner.nextInt();
+                    scanner.nextLine();
+
+                    System.out.println("= Insira o nome do Titular: =");
+                    String nomeParaTitular = scanner.nextLine();
+
+                    System.out.println("= Insira o Saldo inicial: =");
+                    double saldoInicial = scanner.nextDouble();
+                    scanner.nextLine();
+
+                    contaPoupanca cp = new contaPoupanca(numeroParaConta, nomeParaTitular, saldoInicial);
+
+                    listaDeContas.add(cp);
+                    break;
+                }
+                case 3:
+                    System.out.println("= Cadastrando Conta Corrente =");
             }
 
         } while (escolha != 6);
