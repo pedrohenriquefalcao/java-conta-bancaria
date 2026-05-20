@@ -64,7 +64,33 @@ public class Main {
                     break;
                 }
                 case 3:
-                    System.out.println("= Cadastrando Conta Corrente =");
+                    System.out.println("= Efetuando depósito =");
+                    System.out.println("= Por favor, insira o número da conta =");
+                    int contaEscolhida = scanner.nextInt();
+                    scanner.nextLine();
+
+                    conta contaEncontrada = null;
+
+                    for (conta c : listaDeContas) {
+                        if (c.numeroConta == contaEscolhida) {
+                            contaEncontrada = c;
+                            break;
+                        }
+                    }
+
+                    if (contaEncontrada != null) {
+                        System.out.println("= Conta selecionada: " + contaEncontrada.nomeDoTitular);
+                        System.out.println("= Insira o valor a ser depositado: =");
+                        double valorDeposito = scanner.nextDouble();
+                        scanner.nextLine();
+
+                        contaEncontrada.deposito(valorDeposito);
+                        System.out.println("Depósito de R$" + valorDeposito + " efetuado!");
+
+                    } else {
+                        System.out.println("Erro: Conta de número " + contaEscolhida + " não foi encontrada!");
+                    }
+                    break;
             }
 
         } while (escolha != 6);
