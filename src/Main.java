@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        int escolha = 0;
+        int escolha;
         Scanner scanner = new Scanner(System.in);
         ArrayList<conta> listaDeContas = new ArrayList<>(); // Inicializando array para
         // guardar as contas criadas
@@ -123,7 +123,35 @@ public class Main {
                     }
                     break;
                 }
+                case 5: {
+                    System.out.println("= Consultando saldo =");
+                    System.out.println("= Por favor, insira o número da conta =");
+                    int contaEscolhida = scanner.nextInt();
+                    scanner.nextLine();
 
+                    conta contaEncontrada = null;
+
+                    for (conta c : listaDeContas) {
+                        if (c.numeroConta == contaEscolhida) {
+                            contaEncontrada = c;
+                            break;
+                        }
+                    }
+
+                    if (contaEncontrada != null) {
+                        System.out.println("Nome do titular da conta: " + contaEncontrada.nomeDoTitular +
+                                "\nConta selecionada: " + contaEncontrada.numeroConta +
+                                "\nSaldo atual: " + contaEncontrada.saldoAtual);
+                        if (contaEncontrada instanceof contaCorrente) {
+                            System.out.println("Tipo de conta: Conta corrente");
+                        } else {
+                            System.out.println("Tipo de conta: Conta poupança");
+                        }
+                    } else {
+                        System.out.println("Erro: Conta de número " + contaEscolhida + " não foi encontrada!");
+                    }
+                    break;
+                }
             }
         } while (escolha != 6);
     }
