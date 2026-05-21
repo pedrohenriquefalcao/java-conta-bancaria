@@ -9,6 +9,8 @@ public class Main {
         ArrayList<conta> listaDeContas = new ArrayList<>(); // Inicializando array para
         // guardar as contas criadas
 
+        //TODO: 1 - CRIA CC , 2 - CRIA CP , 3 - DEPOSITA ,
+        // 4 - SACA , 5 - CONSULTA SALDO , 6 - ENCERRA
 
         do {
             System.out.println("===== Sistema Interno TechBank (v1.0) =====");
@@ -63,7 +65,7 @@ public class Main {
                     listaDeContas.add(cp);
                     break;
                 }
-                case 3:
+                case 3: {
                     System.out.println("= Efetuando depósito =");
                     System.out.println("= Por favor, insira o número da conta =");
                     int contaEscolhida = scanner.nextInt();
@@ -91,9 +93,38 @@ public class Main {
                         System.out.println("Erro: Conta de número " + contaEscolhida + " não foi encontrada!");
                     }
                     break;
+                }
+                case 4: {
+                    System.out.println("= Efetuando saque =");
+                    System.out.println("= Por favor, insira o número da conta =");
+                    int contaEscolhida = scanner.nextInt();
+                    scanner.nextLine();
+
+                    conta contaEncontrada = null;
+
+                    for (conta c : listaDeContas) {
+                        if (c.numeroConta == contaEscolhida) {
+                            contaEncontrada = c;
+                            break;
+                        }
+                    }
+
+                    if (contaEncontrada != null) {
+                        System.out.println("= Conta selecionada: " + contaEncontrada.nomeDoTitular);
+                        System.out.println("= Insira o valor do saque: =");
+                        double valorSaque = scanner.nextDouble();
+                        scanner.nextLine();
+
+                        contaEncontrada.saque(valorSaque);
+                        System.out.println("Saque de R$" + valorSaque + " efetuado!");
+
+                    } else {
+                        System.out.println("Erro: Conta de número " + contaEscolhida + " não foi encontrada!");
+                    }
+                    break;
+                }
+
             }
-
         } while (escolha != 6);
-
     }
 }
